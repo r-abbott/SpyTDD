@@ -1,0 +1,8 @@
+﻿- Create classes that will try to decrypt a string input.
+- An initial class will be provided that takes an interface in it's constructor, and it will "receive" encrypted messages, using the interface to decrypt the messages.
+- Each class will have a different decryption algorithm
+- Eventually will lead to refactoring to the Composite pattern for the interface, along with either Chain of Command or Pipeline
+
+
+- "Real" input will always begin with a special character and end with a special character when decrypted.
+	- This is to verify the decrypted message is correct
