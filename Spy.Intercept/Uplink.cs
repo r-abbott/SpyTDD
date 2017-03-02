@@ -7,62 +7,51 @@ namespace Spy.Intercept
     public class Uplink
     {
         private readonly IDecryptor _decryptor;
+        private readonly List<string> _encryptedMessages;
 
         public Uplink(IDecryptor decryptor)
         {
             _decryptor = decryptor;
-        }
-
-        public string RunCaesar(string message, bool encrypt)
-        {
-            var cipher = new CaesarCipher();
-            if (encrypt)
-                return cipher.Encrypt(message);
-            return cipher.Decrypt(message);
-        }
-        
-
-        public string RunKeyword(string message, bool encrypt)
-        {
-            var cipher = new KeywordCipher();
-            if (encrypt)
-                return cipher.Encrypt(message);
-            return cipher.Decrypt(message);
-        }
-
-        public string RunVignere(string message, bool encrypt)
-        {
-            var cipher = new VignereCipher();
-            if (encrypt)
-                return cipher.Encrypt(message);
-            return cipher.Decrypt(message);
-        }
-
-        public string RunDayOfWeek(string message, bool encrypt)
-        {
-            var cipher = new DayOfWeekCipher();
-            if (encrypt)
-                return cipher.Encrypt(message);
-            return cipher.Decrypt(message);
+            _encryptedMessages = EncryptMessages();
         }
 
         public List<string> Run()
         {
             var results = new List<string>();
-            EncryptedMessages.ForEach(m =>
+            _encryptedMessages.ForEach(m =>
             {
                 results.Add(_decryptor.Decrypt(m));
             });
             return results;
         }
 
-        private static readonly List<string> EncryptedMessages = new List<string>
+        private List<string> EncryptMessages()
         {
+            var caesar = new CaesarCipher();
+            var keyword = new KeywordCipher();
+            var vignere = new VignereCipher();
+            var dayOfWeek = new DayOfWeekCipher();
 
+            var encrypted = new List<string>
+            {
+                caesar.Encrypt(PlaintextMessages[0]),
+                keyword.Encrypt(PlaintextMessages[1]),
+                vignere.Encrypt(PlaintextMessages[2]),
+                dayOfWeek.Encrypt(PlaintextMessages[3])
+            };
+            return encrypted;
+        }
+
+        private static readonly List<string> PlaintextMessages = new List<string>
+        {
+            "break into test driven development",
+            "at first it may seem like an enigma",
+            "each day will yield a different result",
+            "but once you understand it will all become clear"
         };
     }
 
-    internal class CaesarCipher
+    internal class CaesarCipher : IDecryptor
     {
         private const int ShiftKey = 3;
         private static readonly List<char> Alphabet = new List<char>
@@ -105,7 +94,7 @@ namespace Spy.Intercept
         }
     }
 
-    internal class KeywordCipher
+    internal class KeywordCipher : IDecryptor
     {
         private static readonly List<char> Alphabet = new List<char>
         {
@@ -143,7 +132,7 @@ namespace Spy.Intercept
         }
     }
 
-    internal class VignereCipher
+    internal class VignereCipher : IDecryptor
     {
         private static readonly List<char> Alphabet = new List<char>
         {
@@ -228,7 +217,7 @@ namespace Spy.Intercept
         }
     }
 
-    internal class DayOfWeekCipher
+    internal class DayOfWeekCipher : IDecryptor
     {
         private static readonly List<char> Alphabet = new List<char>
         {
