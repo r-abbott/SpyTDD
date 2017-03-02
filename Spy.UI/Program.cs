@@ -7,21 +7,15 @@ namespace Spy.UI
     {
         static void Main(string[] args)
         {
-            var uplink = new Uplink(new MyDecryptor());
+            // TODO - change with your decryptor
+            IDecryptor decryptor = null;
+            var uplink = new Uplink(decryptor);
 
             var results = uplink.Run();
             results.ForEach(Console.WriteLine);
 
             Console.WriteLine("\nPress Enter to exit...");
             Console.ReadLine();
-        }
-    }
-
-    public class MyDecryptor : IDecryptor
-    {
-        public string Decrypt(string encrypted)
-        {
-            return encrypted;
         }
     }
 }
