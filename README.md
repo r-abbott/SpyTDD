@@ -1,7 +1,7 @@
 # SpyTDD
 A TDD tutorial around processing encrypted messages.
 
-Part 1:
+## Part 1:
 
 You have been selected to develop decryption modules to help decrypt intercepted messages
  for the government spy agency. The agency has a tool already in place that intercepts 
@@ -44,7 +44,7 @@ youhavepassedthefirsttest
 	IDecryptor decryptor = null; // <- replace null with your new class.
 ```
 
-Part 2:
+##Part 2:
 Eurika! Your module has decrypted the first phrase of the message! Everyone is very excited 
 about the results, however they realize that the other parts must be
 encrypted using different cipher techniques. Some analysts believe there may be a keyword in 
@@ -76,7 +76,7 @@ see what it comes up with, the same as you did for Part 1.
 	IDecryptor decryptor = null; // <- replace null with your new class.
 ```
 
-Part 3
+##Part 3
 Excellent! The second phrase has been decrypted! However, there's been a snag: the first phrase 
 is no longer being decrypted.
 Since the uplink is already in place and can't be modified, we'll have to improvise a solution.
@@ -102,7 +102,7 @@ Part 2 Output
 thesecondtestiscomplete
 ```
 
-Part 4
+##Part 4
 Great, now when a new decryptor is created, we can simply add it to the list of decryptors and see
 what works. While you were developing that, our analysts theorized that multiple Alphabetic ciphers
 could be used to generate the encrypted message. Some have even used the term "square" and drawn
@@ -156,7 +156,7 @@ multiplealphabeticciphersimplemented
 - Once you have the module working by proving the test passes, add it to your list of ciphers
 and run the program again.
 
-Part 5
+##Part 5
 The entire message is within our grasp! Only one more message to be decrypted. There appears to
 be a pattern here: each previously decrypted phrase contains a keyword to help decrypt the next
 message. After some analysis, our analysts believe the last phrase follows the same algorithm
