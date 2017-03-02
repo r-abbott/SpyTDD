@@ -4,15 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CD3C7173-C149-40F9-9A72-E4458B7F8CA2}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{5ECF3ACC-8BD5-49AF-B5F1-554EFA14A582}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Spy.Decrypt.Test</RootNamespace>
-    <AssemblyName>Spy.Decrypt.Test</AssemblyName>
+    <RootNamespace>Spy.UI</RootNamespace>
+    <AssemblyName>Spy.UI</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -40,12 +43,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Spy.Decrypt\Spy.Decrypt.csproj">
       <Project>{408c9875-475b-4d33-a27a-5b00ccbd60c9}</Project>
       <Name>Spy.Decrypt</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Spy.Intercept\Spy.Intercept.csproj">
+      <Project>{507384b0-34b1-4cde-9ab0-9df28048e3ca}</Project>
+      <Name>Spy.Intercept</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
