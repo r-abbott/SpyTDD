@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Spy.Intercept, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\Spy.Intercept.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,12 +48,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Instructions.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Spy.Intercept\Spy.Intercept.csproj">
-      <Project>{507384b0-34b1-4cde-9ab0-9df28048e3ca}</Project>
-      <Name>Spy.Intercept</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

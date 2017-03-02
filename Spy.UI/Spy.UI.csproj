@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Spy.Intercept, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Spy.Decrypt\Spy.Intercept.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -53,10 +57,6 @@
     <ProjectReference Include="..\Spy.Decrypt\Spy.Decrypt.csproj">
       <Project>{408c9875-475b-4d33-a27a-5b00ccbd60c9}</Project>
       <Name>Spy.Decrypt</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Spy.Intercept\Spy.Intercept.csproj">
-      <Project>{507384b0-34b1-4cde-9ab0-9df28048e3ca}</Project>
-      <Name>Spy.Intercept</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
