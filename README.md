@@ -146,6 +146,7 @@ decrypted phrase.
 
 Input:
 ```
+triangle
 flttvvwitcxhnhpxbtkicnpvlzupykxigkmd
 ```
 Output:
